@@ -22,6 +22,9 @@ instead of trying to use gnutls-cli:
 
 In my testing on Mac OS using https, gnutls-cli likes to hang forever.
 
+Other branches of this script use curl instead of tls, so you might want
+to check that out if you have problems with tls.
+
 Functions
 =========
 
@@ -69,3 +72,5 @@ Hackery
 
 This version of gist.el includes support for dowloading private gists,
 although it does not list them via gist-list.
+
+This version also includes the switch from http to https github urls.
