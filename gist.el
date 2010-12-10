@@ -225,7 +225,7 @@ Copies the URL into the kill ring."
       (gist-region-private (point) (mark))
       (mark-inactive (gist-buffer-private))))
 
-(defvar gist-fetch-url "https://gist.github.com/%d.txt"
+(defvar gist-fetch-url "https://gist.github.com/%s.txt"
   "Raw Gist content URL format")
 
 ;;;###autoload
@@ -325,14 +325,14 @@ Borrowed from rss.el."
 (defun gist-fetch (id)
   "Fetches a Gist and inserts it into a new buffer
 If the Gist already exists in a buffer, switches to it"
-  (interactive "nGist ID: ")
+  (interactive "MGist ID: ")
 
-  (let* ((gist-buffer-name (format "*gist %d*" id))
+  (let* ((gist-buffer-name (format "*gist %s*" id))
          (gist-buffer (get-buffer gist-buffer-name)))
     (if (bufferp gist-buffer)
       (switch-to-buffer-other-window gist-buffer)
       (progn
-        (message "Fetching Gist %d..." id)
+        (message "Fetching Gist %s..." id)
         (setq gist-buffer
               (url-retrieve-synchronously (format gist-fetch-url id)))
         (with-current-buffer gist-buffer
