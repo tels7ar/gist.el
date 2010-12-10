@@ -18,7 +18,7 @@ In your emacs config:
 You may want to tell tls.el to just use openssl to do fetches
 instead of trying to use gnutls-cli:
 
-    (setq tls-program "openssl s_client -connect %h:%p -no_ssl2 -ign_eof")
+    (setq tls-program '("openssl s_client -connect %h:%p -no_ssl2 -ign_eof"))
 
 In my testing on Mac OS using https, gnutls-cli likes to hang forever.
 
